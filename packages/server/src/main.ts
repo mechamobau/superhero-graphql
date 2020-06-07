@@ -1,81 +1,9 @@
 import { ApolloServer, gql } from "apollo-server-express";
 
+import resolvers from "./graphql/resolvers";
+import typeDefs from "./graphql/typeDefs";
+
 import express from "express";
-
-const typeDefs = gql`
-	type HeroAppearance {
-		gender: String
-		race: String
-		height: [String]
-		weight: [String]
-		eyeColor: String
-		hairColor: String
-	}
-
-	type HeroStats {
-		intelligence: String
-		strength: String
-		speed: String
-		durability: String
-		power: String
-		combat: String
-	}
-
-	type HeroBiography {
-		fullName: String
-		alterEgos: String
-		aliases: [String]
-		placeOfBirth: String
-		firstAppearance: String
-		publisher: String
-		alignment: String
-	}
-
-	type HeroWork {
-		occupation: String
-		base: String
-	}
-
-	type HeroConnections {
-		groupAffiliation: String
-		relatives: String
-	}
-
-	type HeroImage {
-		url: String
-	}
-
-	type Hero {
-		id: ID
-		name: String
-		powerstats: HeroStats
-		biography: HeroBiography
-		appearance: HeroAppearance
-		work: HeroWork
-		connections: HeroConnections
-		image: HeroImage
-	}
-
-	input HeroInput {
-		id: Number!
-	}
-
-	type Query {
-		hero(input: HeroInput): Hero
-		# heroImage(input: HeroInput): HeroImage
-		# heroWork(input: HeroInput): HeroWork
-		# heroConnections(input: HeroInput): HeroConnections
-		# heroAppearance(input: HeroInput): HeroAppearance
-		# heroStats(input: HeroInput): HeroStats
-		# heroBiography(input: HeroInput): HeroBiography
-	}
-`;
-
-const resolvers = {
-	Query: {
-		hero: () => null,
-	},
-};
 
 const app = express();
 
