@@ -1,0 +1,11 @@
+# import Hero, HeroAppearance, HeroStats, HeroBiography, HeroWork, HeroConnections, HeroImage, HeroInput from "Hero.graphql"
+
+type Query {
+	hero(input: HeroInput): Hero
+	# heroImage(input: HeroInput): HeroImage
+	# heroWork(input: HeroInput): HeroWork
+	# heroConnections(input: HeroInput): HeroConnections
+	# heroAppearance(input: HeroInput): HeroAppearance
+	# heroStats(input: HeroInput): HeroStats
+	# heroBiography(input: HeroInput): HeroBiography
+}
