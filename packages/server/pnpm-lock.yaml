@@ -1,16 +1,15 @@
 dependencies:
-  '@graphql-tools/graphql-file-loader': 6.0.8_graphql@15.0.0
-  '@graphql-tools/load': 6.0.8_graphql@15.0.0
-  '@graphql-tools/schema': 6.0.8_graphql@15.0.0
-  apollo-server: 2.14.2_graphql@15.0.0
   apollo-server-express: 2.14.2_graphql@15.0.0
-  body-parser: 1.19.0
+  dotenv: 8.2.0
   express: 4.17.1
   graphql: 15.0.0
   graphql-tools: 6.0.8_graphql@15.0.0
+  node-fetch: 2.6.0
 devDependencies:
   '@types/express': 4.17.6
+  '@types/graphql': 14.5.0
   '@types/node': 14.0.11
+  '@types/node-fetch': 2.5.7
   nodemon: 2.0.4
 lockfileVersion: 5.1
 packages:
@@ -943,6 +942,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-hmLg9pCU/GmxBscg8GCr1vmSoEmbItNNxdD5YH2TJkXm//8atjwuprB+xJBK714JG1dkxbbhp5RHX+Pz1KsCMA==
+  /@types/graphql/14.5.0:
+    dependencies:
+      graphql: 15.1.0
+    deprecated: 'This is a stub types definition. graphql provides its own type definitions, so you do not need this installed.'
+    dev: true
+    resolution:
+      integrity: sha512-MOkzsEp1Jk5bXuAsHsUi6BVv0zCO+7/2PTiZMXWDSsMXvNU6w/PLMQT2vHn8hy2i0JqojPz1Sz6rsFjHtsU0lA==
   /@types/http-assert/1.5.1:
     dev: false
     resolution:
@@ -980,7 +986,6 @@ packages:
     dependencies:
       '@types/node': 14.0.11
       form-data: 3.0.0
-    dev: false
     resolution:
       integrity: sha512-o2WVNf5UhWRkxlf6eq+jMZDu7kjgpgJfl4xVNlvryc95O/6F2ld8ztKX+qu+Rjyet93WAWm5LjeX9H5FGkODvw==
   /@types/node/10.17.24:
@@ -1277,19 +1282,6 @@ packages:
       graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
     resolution:
       integrity: sha512-zhtsqqqfdeoJQAfc41Sy6WnnBVxKNgZ34BKXf/Q+kXmw7rbZ/B5SG3SJMvj1iFsbzZxILmWdUsE9aD20lEr0bg==
-  /apollo-server/2.14.2_graphql@15.0.0:
-    dependencies:
-      apollo-server-core: 2.14.2_graphql@15.0.0
-      apollo-server-express: 2.14.2_graphql@15.0.0
-      express: 4.17.1
-      graphql: 15.0.0
-      graphql-subscriptions: 1.1.0_graphql@15.0.0
-      graphql-tools: 4.0.8_graphql@15.0.0
-    dev: false
-    peerDependencies:
-      graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0
-    resolution:
-      integrity: sha512-H+X3HprWGxV8DIhQyXzheMheKRxSlD9/lMuzIHyW/7VPspc7rX0xsHaFcTwQGcxLz18LhM+HtMBtvzi/KlRIbA==
   /apollo-tracing/0.11.0_graphql@15.0.0:
     dependencies:
       apollo-server-env: 2.4.4
@@ -1382,7 +1374,6 @@ packages:
     resolution:
       integrity: sha512-aiieFW/7h3hY0Bq5d+ktDBejxuwR78vRu9hDUdR8rNhSaQ29VzPL4AoIRG7D/c7tdenwOcKvgPM6tIxB3cB6HA==
   /asynckit/0.4.0:
-    dev: false
     resolution:
       integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
   /at-least-node/1.0.0:
@@ -1704,7 +1695,6 @@ packages:
   /combined-stream/1.0.8:
     dependencies:
       delayed-stream: 1.0.0
-    dev: false
     engines:
       node: '>= 0.8'
     resolution:
@@ -1892,7 +1882,6 @@ packages:
     resolution:
       integrity: sha512-jwK2UV4cnPpbcG7+VRARKTZPUWowwXA8bzH5NP6ud0oeAxyYPuGZUAC7hMugpCdz4BeSZl2Dl9k66CHJ/46ZYQ==
   /delayed-stream/1.0.0:
-    dev: false
     engines:
       node: '>=0.4.0'
     resolution:
@@ -1935,6 +1924,12 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-uEUyaDKoSQ1M4Oq8l45hSE26SnTxL6snNnqvK/VWx5wJhmff5z0FUVJDKDanor/6w3kzE3i7XZOk+7wC0EXr1A==
+  /dotenv/8.2.0:
+    dev: false
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
   /duplexer3/0.1.4:
     dev: true
     resolution:
@@ -2250,7 +2245,6 @@ packages:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.27
-    dev: false
     engines:
       node: '>= 6'
     resolution:
@@ -2505,6 +2499,12 @@ packages:
       node: '>= 10.x'
     resolution:
       integrity: sha512-ZyVO1xIF9F+4cxfkdhOJINM+51B06Friuv4M66W7HzUOeFd+vNzUn4vtswYINPi6sysjf1M2Ri/rwZALqgwbaQ==
+  /graphql/15.1.0:
+    dev: true
+    engines:
+      node: '>= 10.x'
+    resolution:
+      integrity: sha512-0TVyfOlCGhv/DBczQkJmwXOK6fjWkjzY3Pt7wY8i0gcYXq8aogG3weCsg48m72lywKSeOqedEHvVPOvZvSD51Q==
   /has-flag/3.0.0:
     engines:
       node: '>=4'
@@ -3113,7 +3113,6 @@ packages:
     resolution:
       integrity: sha512-y7FpHSbMUMoyPbYUSzO6PaZ6FyRnQOpHuKwbo1G+Knck95XVU4QAiKdGEnj5wwoS7PlOgthX/09u5iFJ+aYf5Q==
   /mime-db/1.44.0:
-    dev: false
     engines:
       node: '>= 0.6'
     resolution:
@@ -3121,7 +3120,6 @@ packages:
   /mime-types/2.1.27:
     dependencies:
       mime-db: 1.44.0
-    dev: false
     engines:
       node: '>= 0.6'
     resolution:
@@ -4337,15 +4335,14 @@ packages:
     resolution:
       integrity: sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 specifiers:
-  '@graphql-tools/graphql-file-loader': ^6.0.8
-  '@graphql-tools/load': ^6.0.8
-  '@graphql-tools/schema': ^6.0.8
   '@types/express': ^4.17.6
+  '@types/graphql': ^14.5.0
   '@types/node': ^14.0.11
-  apollo-server: ^2.14.2
+  '@types/node-fetch': ^2.5.7
   apollo-server-express: ^2.14.2
-  body-parser: ^1.19.0
+  dotenv: ^8.2.0
   express: ^4.17.1
   graphql: ^15.0.0
   graphql-tools: ^6.0.8
+  node-fetch: ^2.6.0
   nodemon: ^2.0.4
