@@ -13,7 +13,7 @@
 		"noUnusedParameters": true,
 		"strict": true,
 		// Type declaration settings
-		"types": []
+		"types": ["node"]
 	},
 	"include": ["./src"],
 	"exclude": ["./node_modules"]
