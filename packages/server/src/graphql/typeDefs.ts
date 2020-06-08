@@ -4,7 +4,7 @@ import { typeDefs as heroTypeDefs } from "./Hero/Hero";
 
 const typeDefs = gql`
 	type Query {
-		__root: string
+		_root: String
 	}
 
 	${heroTypeDefs}

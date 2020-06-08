@@ -1,5 +1,7 @@
 import { gql } from "apollo-server-express";
 
+import fetch from "node-fetch";
+
 export const typeDefs = gql`
 	type HeroAppearance {
 		gender: String
@@ -55,22 +57,33 @@ export const typeDefs = gql`
 	}
 
 	input HeroInput {
-		id: Number!
+		id: Int!
 	}
 
-  extends type Query {
-    hero(input: HeroInput): Hero
-    # heroImage(input: HeroInput): HeroImage
-    # heroWork(input: HeroInput): HeroWork
-    # heroConnections(input: HeroInput): HeroConnections
-    # heroAppearance(input: HeroInput): HeroAppearance
-    # heroStats(input: HeroInput): HeroStats
-    # heroBiography(input: HeroInput): HeroBiography
-  }
+	extend type Query {
+		hero(input: HeroInput): Hero
+		# heroImage(input: HeroInput): HeroImage
+		# heroWork(input: HeroInput): HeroWork
+		# heroConnections(input: HeroInput): HeroConnections
+		# heroAppearance(input: HeroInput): HeroAppearance
+		# heroStats(input: HeroInput): HeroStats
+		# heroBiography(input: HeroInput): HeroBiography
+	}
 `;
 
 export const resolvers = {
 	Query: {
-		hero: () => null,
+		// @ts-ignore
+		hero: async (_, { input }) => {
+			return await fetch(
+				`https://superheroapi.com/api/${process.env.SUPERHERO_API_KEY}/${input.id}`
+			)
+				.then((res) => res.json())
+				.then((res) => {
+					if (res.response === "success") return res;
+
+					throw new Error("Error occured during the request with SuperHeroAPI");
+				});
+		},
 	},
 };

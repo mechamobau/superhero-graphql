@@ -1,14 +1,20 @@
-import { ApolloServer, gql } from "apollo-server-express";
+import { ApolloServer } from "apollo-server-express";
+
+import { DocumentNode } from "graphql";
 
 import resolvers from "./graphql/resolvers";
 import typeDefs from "./graphql/typeDefs";
 
 import express from "express";
 
+if (process.env.NODE_ENV !== "production") {
+	require("dotenv").config();
+}
 const app = express();
 
 const server = new ApolloServer({
-	typeDefs,
+	// @ts-ignore
+	typeDefs: typeDefs as DocumentNode,
 	resolvers,
 });
 
